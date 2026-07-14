@@ -1,0 +1,493 @@
+/* 全局样式 */
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+/* 平滑滚动 */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 全局容器样式优化 */
+.container-fluid {
+  padding: 0 20px;
+}
+
+/* 全局阴影和圆角优化 */
+.shadow-sm {
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.1);
+}
+
+.shadow-md {
+  box-shadow: 0 4px 15px rgba(44, 62, 80, 0.15);
+}
+
+.shadow-lg {
+  box-shadow: 0 8px 25px rgba(44, 62, 80, 0.2);
+}
+
+/* 全局过渡效果 */
+* {
+  transition: all 0.3s ease;
+}
+
+/* 图片悬停效果 */
+.network-images div:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+}
+
+/* 统计数据悬停效果 */
+.stat-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+  border-color: #2c3e50;
+}
+
+/* 网络结果页面样式 */
+#network-results-page {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+.network-title {
+  margin: 10px 0 !important;
+  padding: 0;
+}
+
+.network-visualization {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden;
+  height: calc(100vh - 150px) !important;
+}
+
+.network-visualization iframe {
+  overflow: hidden;
+  border: none;
+}
+
+/* 双行导航栏样式 */
+.double-navbar {
+  margin-bottom: 20px;
+}
+
+/* 第一行：网站标题 */
+.navbar-top {
+  background-color: #2c3e50;
+  padding: 10px 0;
+}
+
+.navbar-brand-large {
+  color: #fff;
+  font-weight: bold;
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.navbar-brand-large img {
+  vertical-align: middle;
+}
+
+/* 第二行：导航链接 */
+.navbar-bottom {
+  background-color: #34495e;
+  padding: 5px 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar-nav-bottom {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-item {
+  display: inline-block;
+}
+
+.nav-link {
+  color: #fff;
+  padding: 10px 40px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+/* 确保下拉按钮与其他导航链接样式一致 */
+.nav-link.dropdown-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px 40px;
+  font-size: 16px;
+  margin: 0;
+}
+
+/* 调整导航栏布局使其居中平均分布 */
+.navbar-nav-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-link:hover {
+  color: #fff;
+  background-color: #3498db;
+  text-decoration: none;
+}
+
+/* 下拉菜单样式 */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-toggle {
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  float: left;
+  min-width: 160px;
+  padding: 5px 0;
+  margin: 2px 0 0;
+  font-size: 14px;
+  text-align: left;
+  list-style: none;
+  background-color: #fff;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 4px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.175);
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+.dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 8px 16px;
+  clear: both;
+  font-weight: 400;
+  color: #333;
+  text-align: inherit;
+  white-space: nowrap;
+  background-color: transparent;
+  border: 0;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.dropdown-item:hover {
+  color: #fff;
+  text-decoration: none;
+  background-color: #3498db;
+}
+
+/* 欢迎区域样式 */
+.welcome-section {
+  background-color: #fff;
+  padding: 40px 20px;
+  margin-bottom: 30px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.welcome-section h1 {
+  color: #2c3e50;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.welcome-section p {
+  color: #7f8c8d;
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+
+/* 图片画廊样式 */
+.image-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 20px;
+  margin-top: 40px;
+}
+
+.image-item {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.image-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* 模块区域样式 */
+.modules-section {
+  background-color: #fff;
+  padding: 40px 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.modules-section h2 {
+  color: #2c3e50;
+  font-size: 28px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* 模块网格样式 */
+.modules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 30px;
+}
+
+/* 模块卡片样式 */
+.module-card {
+  background-color: #ffffff;
+  border: 2px solid #e9ecef;
+  border-radius: 12px;
+  padding: 35px 25px;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(44, 62, 80, 0.08);
+}
+
+.module-card:hover {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  border-color: #3498db;
+  box-shadow: 0 8px 25px rgba(44, 62, 80, 0.25);
+  transform: translateY(-8px);
+}
+
+.module-card:hover h3,
+.module-card:hover p {
+  color: #ffffff;
+}
+
+.module-card:hover .module-icon {
+  transform: scale(1.1);
+}
+
+/* 模块图标样式 */
+.module-icon {
+  font-size: 55px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.module-card h3 {
+  color: #2c3e50;
+  font-size: 22px;
+  margin-bottom: 15px;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.module-card p {
+  color: #6c757d;
+  font-size: 15px;
+  line-height: 1.6;
+  transition: color 0.3s ease;
+}
+
+/* Links区域样式 */
+.links-section a:hover {
+  background-color: rgba(255,255,255,0.2);
+  border-color: rgba(255,255,255,0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* 模块搜索区域样式 - 统一所有模块 */
+.motif-search-section,
+.gene-search-section,
+.mc-preference-section,
+.network-section,
+.protein-binding-section,
+.metabolic-subgraphs-section {
+  background-color: #fff;
+  padding: 40px 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+
+
+.search-type-selector,
+.search-box,
+.multi-line-input,
+.file-upload,
+.search-button {
+  margin-bottom: 20px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.search-button {
+  text-align: center;
+}
+
+.search-button .btn-primary {
+  background-color: #3498db;
+  border-color: #3498db;
+  padding: 10px 30px;
+  font-size: 16px;
+  border-radius: 4px;
+}
+
+.search-button .btn-primary:hover {
+  background-color: #2980b9;
+  border-color: #2980b9;
+}
+
+.motif-results {
+  margin-top: 40px;
+}
+
+.motif-html-container {
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.motif-html-container h4 {
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.motif-html-container p {
+  color: #6c757d;
+  margin-bottom: 10px;
+}
+
+.error-message {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+/* 辅助类 */
+.hidden {
+  display: none !important;
+}
+
+/* 页面标题样式 */
+h2 {
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* 按钮样式优化 */
+.btn-primary {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  border: none;
+  padding: 10px 25px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(44, 62, 80, 0.3);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .navbar-brand-large {
+    font-size: 20px;
+  }
+  
+  .navbar-brand-large img {
+    height: 30px;
+  }
+  
+  .navbar-nav-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .nav-item {
+    margin-bottom: 5px;
+  }
+  
+  .welcome-section h1 {
+    font-size: 28px;
+  }
+  
+  .welcome-section p {
+    font-size: 16px;
+  }
+  
+  .image-gallery {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-gap: 10px;
+  }
+  
+  .modules-grid {
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+  }
+  
+  .network-images {
+    flex-direction: column;
+  }
+  
+  .network-images div {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .links-list {
+    flex-direction: column;
+  }
+  
+  .links-list p {
+    width: 100%;
+  }
+}
