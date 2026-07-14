@@ -1,0 +1,2 @@
+jbrowse2/**/* filter=lfs diff=lfs merge=lfs -text
+www/**/* filter=lfs diff=lfs merge=lfs -text
