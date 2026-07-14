@@ -32,3 +32,43 @@ Public datasets reused in this study were obtained from:
 
 Full per-layer deposits and accession cross-references are listed in
 `docs/data_sources.md`.
+
+
+---
+
+## Production deployment
+
+The repository is the source of truth for the public site
+https://tomatocd.langlab.top/. The runtime is an R + Shiny (v1.14.0)
+application served from the `rocker/shiny:latest` Docker image (image
+digest `sha256:00c997f263e3c3496f1bd6e91c402631cf7edc9c562f85f3259ee8a3efa20b22`)
+on a Synology NAS via Container Manager.
+
+```bash
+docker run -d --name cistrome-shiny \
+  -p 3838:3838 \
+  -v /absolute/path/to/cistrome_web:/srv/shiny-server/cistrome_web \
+  rocker/shiny:latest
+```
+
+Full reproduction details, dependency versions, hardware spec, and
+the Methods-section draft text live under:
+
+- `docs/deployment.md`
+- `docs/dependencies.md`
+- `docs/hardware.md`
+- `docs/Code_Availability_Statement.md`
+
+## Manuscript figure pipeline
+
+For reproducibility of the manuscript figures (Fig 1B already
+end-to-end with a synthetic smoke test), see:
+
+- `workflow/Snakefile`
+- `scripts/fig1b_family_distribution.R`
+- `docs/usage.md`, `docs/manifest_map.md`
+- `examples/test/run.sh`
+
+## License
+
+Released under the MIT License. See `LICENSE`.
