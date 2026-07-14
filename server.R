@@ -1,4 +1,3 @@
-# Load required libraries and global settings
 source("global.R")
 source("config.R")
 library(shiny)
