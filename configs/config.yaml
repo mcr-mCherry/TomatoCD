@@ -1,0 +1,18 @@
+# TomatoCD analysis-pipeline configuration.
+# Paths are repo-relative unless explicitly absolute.
+workdir: ./
+data_dir:    data/raw
+results_dir: results
+figures_dir: results/figures
+manifest:    data/raw/sample_manifest.tsv
+
+genome:
+  fasta:       data/raw/HEINZ.fa.gz
+  gtf:         data/raw/ITAG4.1.gtf.gz
+  chromsizes:  data/raw/HEINZ.chromsizes.tsv
+
+seed: 42
+shiny:
+  app_dir: .
+  host:   0.0.0.0
+  port:   3838

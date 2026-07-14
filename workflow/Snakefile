@@ -1,0 +1,23 @@
+# TomatoCD manuscript analysis pipeline.
+# Entry point:  snakemake --cores 4
+# Dry run:      snakemake -n
+configfile: "configs/config.yaml"
+
+rule all:
+    input:
+        "results/figures/Fig1B.pdf"
+
+# ---- Figure 1B: TF family treemap (smoke-tested) ----
+rule fig1b_family_distribution:
+    input:
+        table="data/raw/SupplementaryTable1.txt"
+    output:
+        pdf="results/figures/Fig1B.pdf"
+    log:
+        "logs/fig1b_family_distribution.log"
+    conda:
+        "../environment.yml"
+    script:
+        "../scripts/fig1b_family_distribution.R"
+
+# Future figure rules go here. See docs/migration_status.md.
