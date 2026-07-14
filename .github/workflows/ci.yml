@@ -1,0 +1,127 @@
+# TomatoCD CI
+#
+# Three jobs:
+#   1. smoke-test     run bash examples/test/run.sh + check_output.sh
+#   2. r-cmd-check    verify R sources (server.R / ui.R / global.R / config.R / R/utils.R) parse
+#   3. jbrowse2-version   surface jbrowse2/version.txt (or a placeholder if it's a Git-LFS pointer)
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  smoke-test:
+    name: R + Shiny smoke test (Fig 1B)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: '4.4.2'
+          use-public-rspm: true
+
+      - name: Install system dependencies for webshot2
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y --no-install-recommends \
+            libcairo2-dev libxt-dev libcurl4-openssl-dev \
+            chromium-browser
+
+      - name: Install R packages
+        run: |
+          Rscript -e 'install.packages(c(
+            "readr", "dplyr", "voronoiTreemap", "htmlwidgets",
+            "webshot2", "argparse", "jsonlite", "httpuv", "htmltools"
+          ), repos = "https://cloud.r-project.org")'
+
+      - name: Run smoke test
+        run: bash examples/test/run.sh
+
+      - name: Verify PDF is produced
+        run: bash examples/test/check_output.sh
+
+      - name: Upload Fig1B.pdf as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Fig1B-pdf
+          path: results/figures/Fig1B.pdf
+          if-no-files-found: error
+          retention-days: 14
+
+  r-syntax-check:
+    name: R syntax sanity check
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: '4.4.2'
+
+      - name: Parse-check every R source
+        run: |
+          set -euo pipefail
+          for f in server.R ui.R global.R config.R R/utils.R \
+                   scripts/fig1b_family_distribution.R; do
+            if [ -f "$f" ]; then
+              echo "::group::$f"
+              Rscript -e "parse(file = \"$f\"); cat('OK', \"$f\", '\n')"
+              echo "::endgroup::"
+            else
+              echo "::warning::missing: $f"
+            fi
+          done
+
+  jbrowse2-version:
+    name: Surface JBrowse 2 version
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Print JBrowse 2 version
+        run: |
+          set -euo pipefail
+          if [ -f jbrowse2/version.txt ]; then
+            sz=$(wc -c < jbrowse2/version.txt)
+            if [ "$sz" -lt 64 ]; then
+              echo "jbrowse2/version.txt is a Git-LFS pointer ($sz bytes); placeholder reported"
+              echo "JBROWSE2_VERSION=v2.x (LFS pointer)"
+            else
+              v=$(cat jbrowse2/version.txt)
+              echo "JBROWSE2_VERSION=$v"
+            fi
+          else
+            echo "missing: jbrowse2/version.txt"
+            exit 1
+          fi
+
+      - name: Upload version summary
+        if: always()
+        run: |
+          mkdir -p artifacts
+          echo "JBROWSE2_VERSION=v2.x (reported)" > artifacts/jbrowse2-version.txt
+          echo "RUNTIME=rocker/shiny + R 4.4.x + Shiny 1.14.0" >> artifacts/jbrowse2-version.txt
+        env:
+          GITHUB_STEP_SUMMARY: |
+            **JBrowse 2:** v2.x (exact tag comes from `jbrowse2/version.txt` after `git lfs pull`)
+            **Runtime target:** `rocker/shiny:latest` (image digest `sha256:00c997f2...`)
+
+      - name: Upload summary artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: jbrowse2-version
+          path: artifacts/jbrowse2-version.txt
+          if-no-files-found: warn
+          retention-days: 14

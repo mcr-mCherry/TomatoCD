@@ -1,3 +1,21 @@
+# -----------------------------------------------------------------------------
+# TomatoCD — global application bootstrap (runs once per worker at boot)
+# Released under the MIT License. See LICENSE in the repository root.
+#
+# Manuscript: NCOMMS-26-056367-T (Nature Communications, under review)
+# Role:       library loading, configuration lookups, and dataset references
+#             consumed by every Shiny session (server.R / ui.R).
+# Maps to:
+#   - Methods § Shiny application / Data sources
+#   - docs/Code_Availability_Statement.md
+#   - docs/deployment.md
+#
+# Production runtime:
+#   rocker/shiny:latest (R 4.4.x, Shiny 1.14.0)
+# Static assets referenced (config.R / EXTERNAL_URLS):
+#   - data/, jbrowse2/, www/, gene_search/
+# -----------------------------------------------------------------------------
+
 # 全局设置和库加载
 library(shiny)
 library(dplyr)

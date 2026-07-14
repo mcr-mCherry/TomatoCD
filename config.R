@@ -1,3 +1,15 @@
+# -----------------------------------------------------------------------------
+# TomatoCD — runtime configuration constants
+# Released under the MIT License. See LICENSE in the repository root.
+#
+# Manuscript: NCOMMS-26-056367-T (Nature Communications, under review)
+# Role:       declares Hugging Face mirror coordinates, proxy flags,
+#             and external-URL routing used by server.R.
+# Maps to:
+#   - docs/hardware.md (External data mirror)
+#   - docs/deployment.md (EXTERNAL_URLS routing)
+# -----------------------------------------------------------------------------
+
 HUGGINGFACE_CONFIG <- list(
   repo_id = "TomatoCisRegDB/TomatoCisRegDB",
   base_url = "",           # 保持为空，让 Shiny 自己根据当前域名处理

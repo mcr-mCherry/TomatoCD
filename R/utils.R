@@ -1,3 +1,23 @@
+# -----------------------------------------------------------------------------
+# TomatoCD — application utility helpers
+# Released under the MIT License. See LICENSE in the repository root.
+#
+# Manuscript: NCOMMS-26-056367-T (Nature Communications, under review)
+# Role:       helper functions used by server.R / ui.R for file upload,
+#             session bookkeeping, plotting, and other interactive UI glue.
+# Maps to:
+#   - Methods § Software / Shiny application utilities
+#   - Code availability § docs/Code_Availability_Statement.md
+#
+# Production runtime:
+#   rocker/shiny:latest (R 4.4.x, Shiny 1.14.0)
+# Reproducibility:
+#   - This file is mounted from /srv/shiny-server/cistrome_web/ at runtime.
+#   - It is exercised by the smoke test in examples/test/run.sh only via
+#     its load-time dependencies; the figure pipeline in
+#     scripts/fig1b_family_distribution.R has its own copy of voronoiTreemap.
+# -----------------------------------------------------------------------------
+
 # 实用工具函数
 
 # 生成唯一文件名
