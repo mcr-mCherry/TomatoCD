@@ -6,11 +6,11 @@ Tomato Cis-Regulatory Database is an integrated discovery platform for Solanacea
 <img width="1769" height="588" alt="image" src="https://github.com/user-attachments/assets/e7d82143-8728-487a-80a9-be2500fa9270" />
 
 TomatoCD provides six core functionalities that distinguish it from existing plant regulatory databases such as PlantTFDB or JASPAR:
-(1) Network — an interactive visualization tool allowing the exploration of regulatory hierarchies and module structures;
-(2) JBrowse2 — a genome browser supporting the visual exploration of transcription factor binding sites, binding sequences, and methylation sensitivity;
-(3) Motif — supporting motif queries identified by BPNet and memeChIP for 84 transcription factors;
-(4) Methylation Sensitivity — a comprehensive analysis of the impact of DNA methylation on transcription factor binding;
-(5) Gene Search — comprehensive gene annotation retrieval and functional analysis;
+(1) Network — an interactive visualization tool allowing the exploration of regulatory hierarchies and module structures;  
+(2) JBrowse2 — a genome browser supporting the visual exploration of transcription factor binding sites, binding sequences, and methylation sensitivity;  
+(3) Motif — supporting motif queries identified by BPNet and memeChIP for 84 transcription factors;  
+(4) Methylation Sensitivity — a comprehensive analysis of the impact of DNA methylation on transcription factor binding;  
+(5) Gene Search — comprehensive gene annotation retrieval and functional analysis;  
 (6) Metabolic Node Sub-Graphs — exploration of lycopene and ethylene pathway-specific regulatory networks and visualization of expression patterns.
 
 ## Data availability
