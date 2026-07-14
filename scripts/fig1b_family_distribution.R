@@ -1,5 +1,19 @@
 #!/usr/bin/env Rscript
-# Fig1B: Voronoi treemap of TF family distribution among Pass-QC TFs.
+# -----------------------------------------------------------------------------
+# TomatoCD — figure pipeline
+# Copyright (c) 2026 TomatoCD authors
+# Released under the MIT License; see LICENSE in the repository root.
+#
+# Manuscript: NCOMMS-26-056367-T (Nature Communications, under review)
+# Rule:       workflow/Snakefile::fig1b_family_distribution
+# Input:      a tab-delimited TF summary table
+# Output:     a PDF of the Voronoi treemap shown in Figure 1B
+# Reproducible:
+#   conda env create -f environment.yml && conda activate tomATOCD
+#   bash examples/test/run.sh         # smoke test (no full data needed)
+#   snakemake --cores 4 --use-conda   # full pipeline
+# -----------------------------------------------------------------------------
+
 suppressPackageStartupMessages({
   library(readr)
   library(dplyr)

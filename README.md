@@ -32,3 +32,37 @@ Public datasets reused in this study were obtained from:
 
 Full per-layer deposits and accession cross-references are listed in
 `docs/data_sources.md`.
+
+## Repository layout (what reviewers see)
+
+This repository hosts two layers:
+
+- **Production app** (pre-existing, preserved untouched): the Shiny
+  application under `R/`, `config.R`, `global.R`, `server.R`, `ui.R`,
+  the JBrowse2 instance under `jbrowse2/`, and the static assets
+  under `www/`.
+- **Manuscript analysis pipeline** (added for reviewer
+  reproducibility): `workflow/`, `scripts/`, `configs/`, `examples/`,
+  `docs/`, `environment.yml`, `Dockerfile`, plus `CITATION.cff`,
+  `CHANGELOG.md`, `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`.
+
+See `docs/manifest_map.md` for the per-figure mapping and
+`docs/data_sources.md` for sequencing data and reusable public
+datasets.
+
+## One-line reproduction
+
+```bash
+docker build -t tomatocd . && \
+  docker run --rm -v "$PWD":/work -w /work tomatocd bash examples/test/run.sh
+```
+
+The first command compiles a self-contained image (R 4.3 + Python 3.11
++ Chromium + the pinned `environment.yml`); the second renders
+`results/figures/Fig1B.pdf` against the bundled synthetic input.
+
+## Code availability paragraph (drop into Methods)
+
+`docs/Code_Availability_Statement.md` contains a Methods-section draft
+ready to be pasted in verbatim (DOI placeholder to be replaced once
+Zenodo mints the canonical release DOI).
