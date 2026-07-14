@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: >-
+  If you use this software or the analyses it contains, please cite both
+  the manuscript and the Zenodo archive of this repository.
+type: software
+title: "TomatoCD — An integrated cis-regulatory database and analysis platform for tomato"
+version: 1.0.0
+date-released: 2026-07-14
+license: MIT
+repository-code: https://github.com/mcr-mCherry/TomatoCD
+repository: https://tomatocd.langlab.top/
+keywords:
+  - tomato
+  - cis-regulatory
+  - transcription factor
+  - 5-methylcytosine
+  - chromatin accessibility
+  - shiny
+  - regulatory genomics
+authors:
+  - family-names: Mo
+    given-names: Chenrui
+    affiliation: "South China Agricultural University"
+  - family-names: Co-authors
+    given-names: (see manuscript)
+preferred-citation:
+  type: article
+  title: "An Integrated Regulatory Platform for Decoding the Three-Layer Architecture of Transcriptional and Epigenetic Control in Fleshy Fruit Development"
+  journal: "Nature Communications"
+  year: 2026
+  manuscript-id: "NCOMMS-26-056367-T"
