@@ -1,4 +1,3 @@
-# 加载必要的库
 library(shiny)
 library(shinydashboard)
 
