@@ -1,0 +1,24 @@
+# 排除 JBrowse2 静态文件（20GB）
+jbrowse2/
+
+# 排除大型数据文件
+data/network_ini/
+data/web_pwm_seqlogo/
+data/all_reports_collected/
+
+# 排除测试和临时文件
+test_network.R
+copy_images.R
+output/
+input/
+
+# 排除 RStudio 项目文件
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+# 排除其他临时文件
+*.Rproj
+*.log
+*.tmp
